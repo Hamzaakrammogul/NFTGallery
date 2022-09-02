@@ -23,12 +23,52 @@ fetch('https://api.opensea.io/api/v1/asset/0xa49a0e5eF83cF89Ac8aae182f22E6464B22
   .then(response => console.log(response))
   .catch(err => console.error(err));
   };
+  const getContract=()=>
+{
+  const options = {method: 'GET'};
 
+fetch('https://api.opensea.io/api/v1/asset_contract/0xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D', options)
+  .then(response => response.json())
+  .then(response => console.log(response))
+  .catch(err => console.error(err));
+}
+const getCollection=()=>{
+  const options = {method: 'GET'};
+
+fetch('https://api.opensea.io/api/v1/collection/boredapeyachtclub', options)
+  .then(response => response.json())
+  .then(response => console.log(response))
+  .catch(err => console.error(err));
+}
+const getCollectionStats=()=>{
+  const options = {method: 'GET', headers: {Accept: 'application/json'}};
+
+fetch('https://api.opensea.io/api/v1/collection/doodles-official/stats', options)
+  .then(response => response.json())
+  .then(response => console.log(response))
+  .catch(err => console.error(err));
+}
+const getOwners=()=>{
+  const options = {method: 'GET'};
+
+fetch('https://api.opensea.io/api/v1/asset/0xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D/5602/owners?limit=20&order_by=created_date&order_direction=desc', options)
+  .then(response => response.json())
+  .then(response => console.log(response))
+  .catch(err => console.error(err));
+}
   return (
     <div className="App">
       <button onClick={connect}>Connect To MetaMask</button>
-      <button onClick={getData}> Get Data</button>
+      <button onClick={getData}> Get Collections</button>
       <button onClick={getAssetData}>Get Asset Data</button>
+      <button onClick={getContract}>Retrieve Contract</button>
+      <button onClick={getCollection}>Retrieve Collection/slug</button>
+      <button onClick={getCollectionStats}>Retrieve Collection/stats</button>
+      <button onClick={getOwners}>Retrieve Owner for NFT</button>
+
+
+
+
     </div>
   );
 }
