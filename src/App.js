@@ -59,10 +59,10 @@ fetch('https://api.opensea.io/api/v1/asset/0xBC4CA0EdA7647A8aB7C2061c2E118A18a93
 const getBundles=()=>{
   const options = {method: 'GET'};
 
-fetch('https://api.opensea.io/api/v1/bundles?owner=0x71CE1c2D828B9Ee63c207bD945B407290f6ABDd5&limit=40&offset=0', options)
-  .then(response => response.json())
-  .then(response => console.log(response))
-  .catch(err => console.error(err));
+  fetch('https://api.opensea.io/api/v1/bundles?owner=0xa1C299326473983C303eEbb76E0cb062857Cd9Cb&limit=40&offset=0', options)
+    .then(response => response.json())
+    .then(response => console.log(response))
+    .catch(err => console.error(err));
 }
   return (
     <div className="App">
@@ -74,11 +74,6 @@ fetch('https://api.opensea.io/api/v1/bundles?owner=0x71CE1c2D828B9Ee63c207bD945B
       <button onClick={getCollectionStats}>Retrieve Collection/stats</button>
       <button onClick={getOwners}>Retrieve Owner for NFT</button>
       <button onClick={getBundles}>Retrieve Bundles</button>
-
-
-
-
-
     </div>
   );
 }
